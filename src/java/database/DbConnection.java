@@ -24,18 +24,19 @@ public class DbConnection {
     
     public static void main(String[] args){
       DbConnection jdbc=new DbConnection();
+      jdbc.getData();
       
-          Scanner inputs = new Scanner(System.in);
-        System.out.print("username");
-        String username = inputs.next();
-                System.out.print("school");
-        String school = inputs.next();
-                System.out.print("faculity");
-        String faculty = inputs.next();
-                System.out.print("Level");
-        int level = inputs.nextInt();
-               System.out.print("Reg_number");
-        int reg_number = inputs.nextInt();
+//          Scanner inputs = new Scanner(System.in);
+//        System.out.print("username");
+//        String username = inputs.next();
+//                System.out.print("school");
+//        String school = inputs.next();
+//                System.out.print("faculity");
+//        String faculty = inputs.next();
+//                System.out.print("Level");
+//        int level = inputs.nextInt();
+//               System.out.print("Reg_number");
+//        int reg_number = inputs.nextInt();
        
 //         jdbc.addData(username,school, faculty, level, reg_number);
       //jdbc.getData();
@@ -71,16 +72,15 @@ public class DbConnection {
     public String addData(Students student){
         String result = "data Inserted successful";
       try{
-        File image = new File(student.getPhoto());
         createConnection(); 
-        preparedStatement=connection.prepareStatement("INSERT INTO students(username,school,faculty,level,reg_number,photo)" + "VALUES(?,?,?,?,?,?)");
+        preparedStatement=connection.prepareStatement("INSERT INTO students(username,school,faculty,level,reg_number,photo,filename)" + "VALUES(?,?,?,?,?,?,?)");
         preparedStatement.setString(1,student.getName());
         preparedStatement.setString(2,student.getSchool());
         preparedStatement.setString(3,student.getFaculity());
         preparedStatement.setInt(4,student.getLevel());
         preparedStatement.setInt(5,student.getReg_number());
-        FileInputStream fis = new FileInputStream(image);
-        preparedStatement.setBinaryStream(6, (InputStream) fis, (int)(image.length()));
+        preparedStatement.setString(6,student.getPhoto());
+        preparedStatement.setString(7,student.getFileName());
         preparedStatement.executeUpdate();
         connection.close();
       }catch(Exception e){

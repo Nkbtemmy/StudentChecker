@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2021 at 10:33 PM
+-- Generation Time: Feb 10, 2021 at 11:50 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -35,7 +35,8 @@ CREATE TABLE `students` (
   `faculty` varchar(250) NOT NULL,
   `level` int(10) NOT NULL,
   `reg_number` int(12) NOT NULL,
-  `photo` blob NOT NULL
+  `photo` varchar(250) NOT NULL,
+  `filename` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -56,7 +57,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `uid` int(250) NOT NULL AUTO_INCREMENT;
+  MODIFY `uid` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

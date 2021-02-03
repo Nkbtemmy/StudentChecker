@@ -2,12 +2,12 @@ package Models;
 
 
 public class Students {
-    private String name,school,faculity,photo;
+    private String name,school,faculity,photo,fileName;
     private int level,reg_number;
    public Students(){
        super();
    }
-   public Students(String name, String school, String faculity, int level,int reg_number, String photo){
+   public Students(String name, String school, String faculity, int level,int reg_number, String photo,String fileName){
        super();
        this.name = name;
        this.school = school;
@@ -15,6 +15,7 @@ public class Students {
        this.level = level;
        this.reg_number = reg_number;
        this.photo = photo;
+       this.fileName = fileName;
    }
 
     /**
@@ -99,6 +100,20 @@ public class Students {
      */
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    /**
+     * @return the fileName
+     */
+    public String getFileName() {
+        return fileName;
+    }
+
+    /**
+     * @param fileName the fileName to set
+     */
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
     
 }
