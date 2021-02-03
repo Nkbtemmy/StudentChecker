@@ -99,6 +99,7 @@ public class userController extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -134,12 +135,13 @@ public class userController extends HttpServlet {
             String faculity = request.getParameter("faculity");
             int level = Integer.parseInt(request.getParameter("level"));
             int reg_number =  Integer.parseInt(request.getParameter("reg_number"));
+            
             //bytes[] photo =request.getParameter("photo");
             //InputStream photo = request.getPart("photo").getInputStream();
             String photo = request.getParameter("photo");
             Students student = new Students(name,school,faculity,level,reg_number,photo);
             con.addData(student);
-            response.sendRedirect("github.com");
+            response.sendRedirect("https//:github.com");
             JOptionPane.showMessageDialog(null, " Successfull registerd");
             
         }
